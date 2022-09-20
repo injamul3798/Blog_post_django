@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+
+{% for post in posts %}
+   <div class="post block">
+    <!--first e title print ashbe.Then date and then intro-->
+    <h2 class="subtitle">{{ post.title }}</h2>
+
+    <small>Posted at {{ post.date_added }}</small>
+
+    <p>{{ post.intro }}</p>
+    <!--Here post detail is function name .so here we call this function to get more info about blog-->
+    <a href="{% url 'post_detail' post.slug %}">Read more</a>
+   </div>
+{% endfor %}
+
+
+{% endblock %}
